@@ -1,0 +1,1 @@
+--bei Bedarf unter /test/resources/tetst-data-import.sql ablegen und benötigten sql code einfügen

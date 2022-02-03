@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm orm_2_1.xsd"
+                 version="2.1">
+	<!-- wird für in memory Tests benötigt damit beim insert während Tests bereits vorhandene 
+		 Daten übersprungen werden. Durch die Konfiguration der PUs im persistence.xml nur
+		 für in memory tests relevant. Gegen eine echte DB wird deren Genertor genutzt.
+	-->
+    <entity class="de.testutils.itest.demo.entity.DemoEntity" name="DemoEntity">
+        <attributes>
+            <id name="id">
+                <column name="ID" />
+                <generated-value strategy="SEQUENCE"
+                                 generator = "DEMO_ID_TEST_GENERATOR" />
+                <sequence-generator name = "DEMO_ID_TEST_GENERATOR" 
+                                 sequence-name = "SEQ_TEST_ID"
+                                 allocation-size = "1"
+                                 initial-value = "1000"/>                           
+            </id>
+        </attributes>
+   </entity>
+</entity-mappings>

@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<testutils.version>1.0.2</testutils.version>
+	</properties>
+	<groupId>de.testutils</groupId>
+	<artifactId>TestUtils</artifactId>
+	<version>${testutils.version}</version>
+	<description>
+		Diese Bibliothek stellt Hilfsmittel und Konfiguration zur Verfügung um 
+		unabhängige Integrationstests im JEE Umfeld mittels Weld zu ermöglichen
+	</description>
+	<packaging>pom</packaging>
+	<!-- META-POM mit diversen Versionsangaben und Plugins -->
+	<parent>
+		<groupId>de.common</groupId>
+		<artifactId>META-POM</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Build-Time>${maven.build.timestamp}</Build-Time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>		
+	<modules>
+		<module>ITestUtils-Core</module>
+		<module>ITestUtils-Demo</module>
+	</modules>
+</project>

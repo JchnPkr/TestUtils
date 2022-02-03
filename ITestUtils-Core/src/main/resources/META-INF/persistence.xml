@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+  <persistence-unit name="integrationtest-inMemory-pu" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> 
+    <jta-data-source>java:testDS</jta-data-source>  
+    <!-- 
+    	Verweis auf orm.xml um bsplw. Sequenzgeneratoren zu überladen.
+    	Ist bei Bedarf im verwendenden Projekt einzukommentieren.
+    -->  
+    <!-- <mapping-file>${testDb.inMemory.orm}</mapping-file> -->
+    
+    <!-- damit hibernate die entity Klassen aus dem Project findet -->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!-- Ggf. im verwendenden Projekt einkommentieren damit Entitäten gefunden werden -->
+    <!-- <jar-file>../classes</jar-file> -->
+    
+    <!-- 
+       	Beispiel properties.
+       	Weitere DB properties sind im anwendenden Projekt unter test.properties 
+       	hinterlegt und werden im PropertiesHelper geladen.
+    -->
+    <properties>
+       <property name="hibernate.order_inserts" value="true" />
+       <property name="hibernate.order_updates" value="true" />
+       <property name="hibernate.jdbc.batch_size" value="50" /> 
+       <property name="hibernate.id.new_generator_mappings" value="true" /> 
+       <property name="hibernate.id.optimizer.pooled.prefer_lo" value="true" />
+       <property name="hibernate.jdbc.batch_versioned_data" value="true" />
+       <property name="hibernate.synonyms" value="true" />
+       <property name="hibernate.format_sql" value="true" />
+       <property name="connection.autocommit" value="false" />
+       <property name="javax.persistence.validation.mode" value="NONE"/>
+       <property name="hibernate.transaction.jta.platform" value="JBossAS"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="integrationtest-default-pu" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> 
+    <jta-data-source>java:testDS</jta-data-source>
+      
+    <!-- damit hibernate die entity Klassen aus dem Project findet -->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <!-- Im verwendenden Projekt einkommentieren damit Entitäten gefunden werden -->
+    <!-- <jar-file>../classes</jar-file> -->
+    
+    <!-- 
+       	Beispiel properties.
+       	Weitere DB properties sind im anwendenden Projekt unter test.properties 
+       	hinterlegt und werden im PropertiesHelper geladen.
+    -->
+    <properties>
+       <property name="hibernate.order_inserts" value="true" />
+       <property name="hibernate.order_updates" value="true" />
+       <property name="hibernate.jdbc.batch_size" value="50" /> 
+       <property name="hibernate.id.new_generator_mappings" value="true" /> 
+       <property name="hibernate.id.optimizer.pooled.prefer_lo" value="true" />
+       <property name="hibernate.jdbc.batch_versioned_data" value="true" />
+       <property name="hibernate.synonyms" value="true" />
+       <property name="hibernate.format_sql" value="true" />
+       <property name="connection.autocommit" value="false" />
+       <property name="javax.persistence.validation.mode" value="NONE"/>
+       <property name="hibernate.transaction.jta.platform" value="JBossAS"/>
+    </properties>
+  </persistence-unit>
+</persistence>
