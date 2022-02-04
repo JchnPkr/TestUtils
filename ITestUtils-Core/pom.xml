@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>de.testutils</groupId>
 		<artifactId>TestUtils</artifactId>
-		<version>${testutils.version}</version>
+		<version>${revision}</version>
 	</parent>
 	<artifactId>ITestUtils-Core</artifactId>
 	<packaging>jar</packaging>

@@ -2,12 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<properties>
-		<testutils.version>1.0.2</testutils.version>
-	</properties>
 	<groupId>de.testutils</groupId>
 	<artifactId>TestUtils</artifactId>
-	<version>${testutils.version}</version>
+	<version>${revision}</version>
 	<description>
 		Diese Bibliothek stellt Hilfsmittel und Konfiguration zur Verfügung um 
 		unabhängige Integrationstests im JEE Umfeld mittels Weld zu ermöglichen
@@ -19,6 +16,9 @@
 		<artifactId>META-POM</artifactId>
 		<version>1.0.0</version>
 	</parent>
+	<properties>
+		<revision>1.0.2</revision>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
